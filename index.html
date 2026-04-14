@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Alexandre</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+
+       body {
+           background-color: #FF1493; /* Rosa choque */
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           font-family: Arial, sans-serif;
+           overflow: hidden;
+       }
+
+
+       .container {
+           text-align: center;
+       }
+
+
+       .btn-alexandre {
+           background-color: white;
+           color: #FF1493;
+           border: none;
+           padding: 20px 40px;
+           font-size: 24px;
+           font-weight: bold;
+           border-radius: 15px;
+           cursor: pointer;
+           box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+           transition: all 0.3s ease;
+       }
+
+
+       .btn-alexandre:hover {
+           transform: scale(1.05);
+           box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+       }
+
+
+       .btns-secundarios {
+           display: none;
+           flex-direction: column;
+           gap: 20px;
+       }
+
+
+       .btn-secundario {
+           background-color: white;
+           color: #FF1493;
+           border: none;
+           padding: 15px 30px;
+           font-size: 20px;
+           font-weight: bold;
+           border-radius: 10px;
+           cursor: pointer;
+           box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+           transition: all 0.3s ease;
+       }
+
+
+       .btn-secundario:hover {
+           transform: scale(1.05);
+           box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+       }
+
+
+       .mostrar {
+           display: flex !important;
+       }
+
+
+       /* Estilos para as mensagens */
+       .mensagem {
+           display: none;
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           background-color: white;
+           padding: 40px;
+           border-radius: 20px;
+           box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+           max-width: 90%;
+           font-size: 22px;
+           font-weight: bold;
+           color: #FF1493;
+           text-align: center;
+           z-index: 1000;
+           animation: aparecer 0.5s ease;
+       }
+
+
+       .emoji {
+           font-size: 32px;
+           margin-left: 10px;
+       }
+
+
+       .foto-visu {
+           width: 200px;
+           height: 200px;
+           border-radius: 50%;
+           object-fit: cover;
+           margin: 20px auto;
+           border: 8px solid #FF1493;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+       }
+
+
+       @keyframes aparecer {
+           from {
+               opacity: 0;
+               transform: translate(-50%, -60%);
+           }
+           to {
+               opacity: 1;
+               transform: translate(-50%, -50%);
+           }
+       }
+
+
+       .fechar-msg {
+           background-color: #FF1493;
+           color: white;
+           border: none;
+           padding: 10px 20px;
+           border-radius: 10px;
+           cursor: pointer;
+           margin-top: 20px;
+           font-size: 16px;
+           font-weight: bold;
+       }
+   </style>
+</head>
+<body>
+   <div class="container">
+       <button class="btn-alexandre" onclick="mostrarBotoes()">
+           ALEXANDRE
+       </button>
+      
+       <div class="btns-secundarios" id="btnsSecundarios">
+           <button class="btn-secundario" onclick="mostrarMensagemFernando()">FERNANDO</button>
+           <button class="btn-secundario" onclick="mostrarMensagemHendrick()">HENDRICK</button>
+           <button class="btn-secundario" onclick="mostrarMensagemConsuelo()">CONSUelo</button>
+       </div>
+   </div>
+
+
+   <!-- Mensagens -->
+   <div id="msgFernando" class="mensagem">
+       Ops, acho que você esqueceu algo aqui em casa 😈
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgFernando')">FECHAR</button>
+   </div>
+
+
+   <div id="msgHendrick" class="mensagem">
+       Ha, então vc quer meu visto? Primeiro preciso de algo 👀
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgHendrick')">FECHAR</button>
+   </div>
+
+
+   <div id="msgConsuelo" class="mensagem">
+       Vc quer aumentar seu salário? 😋
+       <br><br>
+       <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=face"
+            alt="Foto Visu Única" class="foto-visu">
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgConsuelo')">FECHAR</button>
+   </div>
+
+
+   <script>
+       function mostrarBotoes() {
+           const btnsSecundarios = document.getElementById('btnsSecundarios');
+           const btnAlexandre = document.querySelector('.btn-alexandre');
+          
+           btnsSecundarios.classList.toggle('mostrar');
+           btnAlexandre.style.display = 'none';
+       }
+
+
+       function mostrarMensagemFernando() {
+           document.getElementById('msgFernando').style.display = 'block';
+       }
+
+
+       function mostrarMensagemHendrick() {
+           document.getElementById('msgHendrick').style.display = 'block';
+       }
+
+
+       function mostrarMensagemConsuelo() {
+           document.getElementById('msgConsuelo').style.display = 'block';
+       }
+
+
+       function fecharMensagem(idMsg) {
+           document.getElementById(idMsg).style.display = 'none';
+       }
+   </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Alexandre</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+
+       body {
+           background-color: #FF1493; /* Rosa choque */
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           font-family: Arial, sans-serif;
+           overflow: hidden;
+       }
+
+
+       .container {
+           text-align: center;
+       }
+
+
+       .btn-alexandre {
+           background-color: white;
+           color: #FF1493;
+           border: none;
+           padding: 20px 40px;
+           font-size: 24px;
+           font-weight: bold;
+           border-radius: 15px;
+           cursor: pointer;
+           box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+           transition: all 0.3s ease;
+       }
+
+
+       .btn-alexandre:hover {
+           transform: scale(1.05);
+           box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+       }
+
+
+       .btns-secundarios {
+           display: none;
+           flex-direction: column;
+           gap: 20px;
+       }
+
+
+       .btn-secundario {
+           background-color: white;
+           color: #FF1493;
+           border: none;
+           padding: 15px 30px;
+           font-size: 20px;
+           font-weight: bold;
+           border-radius: 10px;
+           cursor: pointer;
+           box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+           transition: all 0.3s ease;
+       }
+
+
+       .btn-secundario:hover {
+           transform: scale(1.05);
+           box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+       }
+
+
+       .mostrar {
+           display: flex !important;
+       }
+
+
+       /* Estilos para as mensagens */
+       .mensagem {
+           display: none;
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           background-color: white;
+           padding: 40px;
+           border-radius: 20px;
+           box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+           max-width: 90%;
+           font-size: 22px;
+           font-weight: bold;
+           color: #FF1493;
+           text-align: center;
+           z-index: 1000;
+           animation: aparecer 0.5s ease;
+       }
+
+
+       .emoji {
+           font-size: 32px;
+           margin-left: 10px;
+       }
+
+
+       .foto-visu {
+           width: 200px;
+           height: 200px;
+           border-radius: 50%;
+           object-fit: cover;
+           margin: 20px auto;
+           border: 8px solid #FF1493;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+       }
+
+
+       @keyframes aparecer {
+           from {
+               opacity: 0;
+               transform: translate(-50%, -60%);
+           }
+           to {
+               opacity: 1;
+               transform: translate(-50%, -50%);
+           }
+       }
+
+
+       .fechar-msg {
+           background-color: #FF1493;
+           color: white;
+           border: none;
+           padding: 10px 20px;
+           border-radius: 10px;
+           cursor: pointer;
+           margin-top: 20px;
+           font-size: 16px;
+           font-weight: bold;
+       }
+   </style>
+</head>
+<body>
+   <div class="container">
+       <button class="btn-alexandre" onclick="mostrarBotoes()">
+           ALEXANDRE
+       </button>
+      
+       <div class="btns-secundarios" id="btnsSecundarios">
+           <button class="btn-secundario" onclick="mostrarMensagemFernando()">FERNANDO</button>
+           <button class="btn-secundario" onclick="mostrarMensagemHendrick()">HENDRICK</button>
+           <button class="btn-secundario" onclick="mostrarMensagemConsuelo()">CONSUelo</button>
+       </div>
+   </div>
+
+
+   <!-- Mensagens -->
+   <div id="msgFernando" class="mensagem">
+       Ops, acho que você esqueceu algo aqui em casa 😈
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgFernando')">FECHAR</button>
+   </div>
+
+
+   <div id="msgHendrick" class="mensagem">
+       Ha, então vc quer meu visto? Primeiro preciso de algo 👀
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgHendrick')">FECHAR</button>
+   </div>
+
+
+   <div id="msgConsuelo" class="mensagem">
+       Vc quer aumentar seu salário? 😋
+       <br><br>
+       <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=face"
+            alt="Foto Visu Única" class="foto-visu">
+       <br><br>
+       <button class="fechar-msg" onclick="fecharMensagem('msgConsuelo')">FECHAR</button>
+   </div>
+
+
+   <script>
+       function mostrarBotoes() {
+           const btnsSecundarios = document.getElementById('btnsSecundarios');
+           const btnAlexandre = document.querySelector('.btn-alexandre');
+          
+           btnsSecundarios.classList.toggle('mostrar');
+           btnAlexandre.style.display = 'none';
+       }
+
+
+       function mostrarMensagemFernando() {
+           document.getElementById('msgFernando').style.display = 'block';
+       }
+
+
+       function mostrarMensagemHendrick() {
+           document.getElementById('msgHendrick').style.display = 'block';
+       }
+
+
+       function mostrarMensagemConsuelo() {
+           document.getElementById('msgConsuelo').style.display = 'block';
+       }
+
+
+       function fecharMensagem(idMsg) {
+           document.getElementById(idMsg).style.display = 'none';
+       }
+   </script>
+</body>
+</html>
+
